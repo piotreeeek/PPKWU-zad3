@@ -2,15 +2,17 @@
 module.exports = function(app) {
 
   // todoList Routes
-  app.route('/check/email/:email')
-    .get(checkEmail);
+  app.route('/check/email/')
+    .post(checkEmail);
 
 };
+
+
 
 function checkEmail(req, res){
     var validator = require('email-validator');
 
-    var result = validator.validate(req.params.email) && req.params.email.slice(-3) == '.pl' && req.params.email.slice(-7) != '.com.pl'
+    var result = validator.validate(req.body.email) && req.body.email.slice(-3) == '.pl' && req.body.email.slice(-7) != '.com.pl'
     res.status(200);
-    res.json({message: result});
+    res.json({response: result});
 }
