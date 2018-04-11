@@ -7,8 +7,10 @@ module.exports = function(app) {
 
 };
 
-
 function checkEmail(req, res){
-    res.send(200).body(req.param.email);
-    res.json(req.param.email);
+    var validator = require('email-validator');
+
+    var result = validator.validate(req.params.email) && req.params.email.slice(-3) == '.pl' && req.params.email.slice(-7) != '.com.pl'
+    res.status(200);
+    res.json({message: result});
 }
