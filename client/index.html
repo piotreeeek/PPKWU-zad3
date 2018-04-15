@@ -19,7 +19,7 @@
                 created() {
                     axios.get(`http://localhost:3000/api`)
                     .then(response => {
-                        console.log(repsonse.data);
+                        console.log(response.data);
                         this.api= response.data;
                     })
                     .catch(e => {
