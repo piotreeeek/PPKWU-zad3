@@ -14,6 +14,6 @@ function randomApi (req, res) {
     ];
 
     res.status(200);
-    //res.json(apis[Math.floor(Math.random()*apis.length)]);
-    res.json(apis[0]);
+    res.json(apis[Math.floor(Math.random()*apis.length)]);
+    //res.json(apis[0]);
 }
