@@ -6,7 +6,15 @@
     </head>
     <body>
         <div id="app">
-
+            {{ api.name }}
+        
+            
+            <form v-on:submit.prevent="onSubmit">
+                <div v-for="parameter in api.parameters">
+                    {{ parameter.name }}:<input  v-bind:name="parameter.name" v-bind:type="parameter.type" />
+                </div>
+                <input type="submit" value="Wyslij" />
+            </form>
         </div>
 
         <script>
