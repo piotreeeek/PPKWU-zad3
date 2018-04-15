@@ -7,8 +7,8 @@ var express = require('express'),
   //Here we are configuring express to use body-parser as middle-ware.
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
-var routes = require('./api/routes/emailRoutes'); //importing route
- routes(app); //register the route
+var emailRoutes = require('./api/routes/emailRoutes'); //importing route
+ emailRoutes(app); //register the route
   
   
 
