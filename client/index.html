@@ -33,6 +33,25 @@
                     .catch(e => {
                         console.log(e);
                     })
+                },
+                methods: {
+                    onSubmit: function() {
+
+                        var form = {};
+                        this.api.parameters.forEach( function(parameter) {
+                        form[parameter.name] = document.getElementsByName(parameter.name)[0].value;
+                        })
+                        console.log(form);
+
+                        axios.post(this.api.url, form)
+                        .then(response => {
+                            console.log(response.data);
+                            this.api= response.data;
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        })
+                    }
                 }
             })
         </script>
